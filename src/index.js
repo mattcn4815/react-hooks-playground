@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 
 import "./styles.css";
 
+function toggleClickedHook(currentState, setState) {
+  setState(!currentState);
+}
+
 function App() {
+  const [clicked, setClicked] = useState(false);
+  const toggleClicked = toggleClickedHook.bind(null, clicked, setClicked);
+  console.log(clicked);
   return (
     <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
+      <button onClick={toggleClicked}>{"Click me"}</button>
+      {clicked && <p>{"Hi Josh"}</p>}
     </div>
   );
 }
