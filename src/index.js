@@ -1,20 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
+import Loading from "./loading";
 
 import "./styles.css";
 
-function toggleClickedHook(currentState, setState) {
-  setState(!currentState);
-}
-
 function App() {
-  const [clicked, setClicked] = useState(false);
-  const toggleClicked = toggleClickedHook.bind(null, clicked, setClicked);
-  console.log(clicked);
   return (
     <div className="App">
-      <button onClick={toggleClicked}>{"Click me"}</button>
-      {clicked && <p>{"Hi Josh"}</p>}
+      <Loading width={"80vw"} height={300} />
     </div>
   );
 }
