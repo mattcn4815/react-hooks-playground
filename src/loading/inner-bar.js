@@ -9,8 +9,8 @@ const innerBarStyle = {
   borderRadius: 10
 };
 
-function setBarPosition(leftVal) {
-  return { ...innerBarStyle, left: leftVal + "%" };
+function setBarPosition(left) {
+  return { ...innerBarStyle, left };
 }
 
 export default ({ leftVal }) => {
