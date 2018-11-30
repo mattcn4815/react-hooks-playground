@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import InnerBar from "./inner-bar";
+import { useLoadingAnimation } from "./hooks";
 
 const barStyle = {
   position: "relative",
@@ -11,21 +12,7 @@ const barStyle = {
 
 const Loading = ({ done, width, animationSpeed }) => {
   const maxLeftVal = width * 0.8;
-  const [direction, setDirection] = useState(1);
-  const [leftVal, setLeftVal] = useState(0);
-  useEffect(() => {
-    const frameId = requestAnimationFrame(() => {
-      if (leftVal >= maxLeftVal) {
-        setDirection(-1);
-      }
-      if (leftVal < 0) {
-        setDirection(1);
-      }
-      const newLeftVal = leftVal + direction * animationSpeed;
-      setLeftVal(newLeftVal);
-    });
-    return () => cancelAnimationFrame(frameId);
-  });
+  const leftVal = useLoadingAnimation(maxLeftVal, animationSpeed);
   return (
     <div>
       <h3>{"Loading"}</h3>
