@@ -7,7 +7,7 @@ import "./styles.css";
 function App() {
   return (
     <div className="App">
-      <Loading width={400} animationSpeed={2} />
+      <Loading width={400} animationSpeed={3} />
     </div>
   );
 }

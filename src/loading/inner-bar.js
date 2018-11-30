@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 
 const innerBarStyle = {
   position: "absolute",
@@ -13,6 +13,6 @@ function setBarPosition(left) {
   return { ...innerBarStyle, left };
 }
 
-export default ({ leftVal }) => {
+export default memo(({ leftVal }) => {
   return <span style={setBarPosition(leftVal)} />;
-};
+});
