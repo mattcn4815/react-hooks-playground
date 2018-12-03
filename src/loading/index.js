@@ -1,6 +1,7 @@
 import React from "react";
 import InnerBar from "./inner-bar";
 import { useLoadingAnimation } from "./hooks";
+import Messages from "./messages";
 
 const barStyle = {
   position: "relative",
@@ -19,6 +20,7 @@ const Loading = ({ done, width, animationSpeed }) => {
       <span style={{ ...barStyle, width }}>
         <InnerBar leftVal={leftVal} />
       </span>
+      <Messages />
     </div>
   );
 };
